@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#172d29" />
+    <title>こだいら防災ウォーク</title>
+  </head>
+  <body>
+    <main id="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">KODAIRA CIVIC SAFETY LAB</p>
+          <h1>こだいら防災ウォーク</h1>
+        </div>
+        <button id="help-button" class="icon-button" aria-label="遊び方を表示">?</button>
+      </header>
+
+      <section class="game-shell" aria-label="小平市役所周辺の防災シミュレーション">
+        <div id="game"></div>
+        <div class="hud hud-status">
+          <span class="status-light" id="status-light"></span>
+          <div>
+            <small>現在の状況</small>
+            <strong id="status-text">平常時</strong>
+          </div>
+        </div>
+        <div class="hud hud-objective">
+          <small>ミッション</small>
+          <strong id="objective-text">周辺を確認してください</strong>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+        </div>
+        <div class="hud hud-clock">
+          <small>経過時間</small>
+          <strong id="clock">00:00</strong>
+        </div>
+        <div id="event-banner" class="event-banner" aria-live="assertive">
+          <span>緊急地震速報</span>
+          <strong>地震が発生しました</strong>
+          <small>危険箇所を避け、避難地点へ移動してください</small>
+        </div>
+        <div id="result-panel" class="result-panel hidden">
+          <p class="eyebrow">EVACUATION COMPLETE</p>
+          <h2>避難完了</h2>
+          <p id="result-summary"></p>
+          <button id="restart-button" class="primary-button">もう一度プレイ</button>
+        </div>
+        <div class="controls" aria-label="移動操作">
+          <button data-direction="up" aria-label="上へ移動">▲</button>
+          <button data-direction="left" aria-label="左へ移動">◀</button>
+          <button data-direction="down" aria-label="下へ移動">▼</button>
+          <button data-direction="right" aria-label="右へ移動">▶</button>
+        </div>
+      </section>
+
+      <footer>
+        <span>移動: WASD / 矢印キー</span>
+        <span>地図データ © OpenStreetMap contributors（取得範囲・日時はREADME参照）</span>
+        <span>本作は訓練用試作であり、実際の避難判断には使用できません。</span>
+      </footer>
+    </main>
+
+    <dialog id="help-dialog">
+      <button id="close-help" class="dialog-close" aria-label="閉じる">×</button>
+      <p class="eyebrow">HOW TO PLAY</p>
+      <h2>遊び方</h2>
+      <p>小平市役所周辺を歩き、地震発生後に表示される緑色の避難地点を目指してください。赤い危険区域と建物の中には入れません。</p>
+      <dl>
+        <div><dt>PC</dt><dd>WASD または矢印キー</dd></div>
+        <div><dt>スマートフォン</dt><dd>画面右下の方向ボタン</dd></div>
+      </dl>
+      <button id="start-button" class="primary-button">はじめる</button>
+    </dialog>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
